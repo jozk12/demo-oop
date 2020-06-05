@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -9,16 +10,27 @@
 </head>
 <body>
     <h1>Trang chủ</h1>
-    <table>
+    <table border="1">
         <thead>
         <tr>
             <th>ID</th>
             <th>Name</th>
-            <th></th>
-            <th></th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Role</th>
         </tr>
         </thead>
-        <tbody></tbody>
+        <tbody>
+        <?php foreach ($user as $u):?>
+            <tr>
+                <td><?= $u->id?></td>
+                <td><?= $u->name?></td>
+                <td><?= $u->email?></td>
+                <td><?= $u->phone_number?></td>
+                <td><?= $u->role_id?></td>
+            </tr>
+        <?php endforeach;?>
+        </tbody>
     </table>
 </body>
 </html>
