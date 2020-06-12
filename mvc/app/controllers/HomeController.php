@@ -1,9 +1,12 @@
 <?php
-require_once "./app/models/user.php";
-    class HomeController{
-        function home(){
-            $user = User::all();
-            require_once "./app/views/home/index.php";
-        }
+namespace App\Controllers;
+use App\Models\Product;
+class HomeController{
+    function home(){
+        $products = Product::all();
+        
+        // dd($products);
+        require_once "./app/views/home/index.php";
     }
+}
 ?>

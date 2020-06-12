@@ -21,13 +21,13 @@
         </tr>
         </thead>
         <tbody>
-        <?php foreach ($user as $u):?>
+        <?php foreach ($products as $u):?>
             <tr>
                 <td><?= $u->id?></td>
                 <td><?= $u->name?></td>
-                <td><?= $u->email?></td>
-                <td><?= $u->phone_number?></td>
-                <td><?= $u->role_id?></td>
+                <td><?= $u->price?></td>
+                <td><?= $u->quantity?></td>
+                
             </tr>
         <?php endforeach;?>
         </tbody>
