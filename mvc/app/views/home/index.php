@@ -17,17 +17,19 @@
             <th>Name</th>
             <th>Email</th>
             <th>Phone</th>
-            <th>Role</th>
+            <th colspan="2"><a href="<?=getClientUrl('add-product')?>">Thêm</a></th>
         </tr>
         </thead>
         <tbody>
-        <?php foreach ($products as $u):?>
+        <?php foreach ($products as $p):?>
             <tr>
-                <td><?= $u->id?></td>
-                <td><?= $u->name?></td>
-                <td><?= $u->price?></td>
-                <td><?= $u->quantity?></td>
-                
+                <td><?= $p->id?></td>
+                <td><?= $p->name?></td>
+                <td><?= $p->price?></td>
+                <td><?= $p->quantity?></td>
+                <td><a href="<?=getClientUrl('edit-product',['id'=>$p->id])?>">Sửa</a></td>
+                <td><a href="<?=getClientUrl('remove-product',['id'=>$p->id])?>">Xóa</a></td>
+
             </tr>
         <?php endforeach;?>
         </tbody>

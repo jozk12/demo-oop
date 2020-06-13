@@ -1,6 +1,7 @@
 <?php
 namespace App\Controllers;
 use App\Models\Product;
+use App\Models\Category;
     class ProductController{
         function product(){
             echo "Sản phẩm";
@@ -9,13 +10,35 @@ use App\Models\Product;
             echo "Giỏ hàng";
         }
 
-        public function add(){
+        public function addForm(){
+            $cates = Category::all();
+            include_once './app/views/products/add-form.php';
+        }
+        public function saveAdd(){
+            $data = $_POST;
             $model = new Product();
-            $model->name = 'Sầu riêng';
-            $model->price = 100000;
-            $model->quantity = 120;
+            $model->fill($data);
             $model->save();
-            header('location: http://localhost/php2/mvc');
+
+            header('location:'.BASE_URL);
+        }
+        public function editForm(){
+            $id = isset($_GET['id'])?$_GET['id']:-1;
+            $cates = Category::all();
+            $model = Product::find($id);
+            if($model==null){
+                header('location:'.BASE_URL);
+            }
+            $data = $_POST;
+            $model->fill($data);
+            $model->save();
+
+            header('location:'.BASE_URL);
+        }
+        public function delete(){
+            $id = isset($_GET['id'])?$_GET['id']:-1;
+            Product::delete($id);
+            header('location:'.BASE_URL);
         }
     }
 ?>

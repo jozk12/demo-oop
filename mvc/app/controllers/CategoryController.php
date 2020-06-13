@@ -1,9 +1,9 @@
 <?php
 namespace App\Controllers;
-use App\Models\Product;
+use App\Models\Category;
 class HomeController{
     function home(){
-        $products = Product::all();
+        $cates = Category::all();
         require_once "./app/views/home/index.php";
     }
 }
